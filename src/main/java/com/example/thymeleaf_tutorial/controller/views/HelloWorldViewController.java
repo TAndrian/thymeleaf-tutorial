@@ -16,9 +16,11 @@ public class HelloWorldViewController {
      * URL: <a href="http://localhost:8080/hello">...</a>.
      * It must be annotated with @Controller and not @RestController.
      *
-     * @param model model to pass attributes & values, here message which contains the value
-     *              "hello world!".
-     * @return view hello-world (the html file located in templates folder).
+     * @param model to pass attributes & values
+     *              or also called "variable expressions" to the view.
+     *              Here the attribute or also called variable name is "message",
+     *              and it contains the value "hello world!".
+     * @return view hello-world(.html) (the html file located in the templates folder).
      */
     @GetMapping("/hello")
     public String helloWorld(Model model) {
