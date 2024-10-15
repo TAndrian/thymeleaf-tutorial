@@ -18,6 +18,12 @@ public class ThymeleafTutorialApplication {
         SpringApplication.run(ThymeleafTutorialApplication.class, args);
     }
 
+    /**
+     * Initialize Db with data.
+     *
+     * @param studentRepository studentRepository.
+     * @return Db initialized with data.
+     */
     @Bean
     CommandLineRunner initDatabase(StudentRepository studentRepository) {
         return args -> {
