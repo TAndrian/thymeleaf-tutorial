@@ -15,12 +15,12 @@ import java.util.UUID;
 @AllArgsConstructor
 public class StudentViewController {
 
-
     @GetMapping("/student")
-    public String studentsTemplate(Model model) {
+    public String studentTemplate(Model model) {
         StudentDTO student = new StudentDTO(UUID.fromString("e6d1fbb3-6b5a-4fbd-bb2f-2a7f5bc4cdb1"), "Alice", "Smith", Gender.FEMALE);
 
         model.addAttribute("student", student);
         return "student-view";
     }
+
 }

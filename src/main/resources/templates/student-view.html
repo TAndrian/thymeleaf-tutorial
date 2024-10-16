@@ -18,7 +18,7 @@
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right">
                 <li><a class="btn-floating red"><i class="material-icons">exit_to_app</i></a></li>
             </ul>
         </div>
@@ -32,15 +32,21 @@
             </ul>
         </div>
     </nav>
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title" th:text="${student.firstname}"></span>
-                    <p>Gender: <span th:text="${student.gender}"></span></p>
-                </div>
-            </div>
-        </div>
+
+    <div class="variable-expression container">
+        <h3>Variable expression</h3>
+        <hr/>
+        <p>Firstname: <strong th:text="${student.firstname}"></strong></p>
+        <p>Lastname: <strong th:text="${student.lastname}"></strong></p>
+        <p>Gender: <strong th:text="${student.gender}"></strong></p>
+    </div>
+
+    <div class="selection-expression container" th:object="${student}">
+        <h3>Selection expression</h3>
+        <hr/>
+        <p>Firstname: <strong th:text="*{firstname}"></strong></p>
+        <p>Lastname: <strong th:text="*{lastname}"></strong></p>
+        <p>Gender: <strong th:text="*{gender}"></strong></p>
     </div>
 </main>
 </body>
