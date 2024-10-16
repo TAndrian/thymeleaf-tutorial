@@ -48,6 +48,28 @@
         <p>Lastname: <strong th:text="*{lastname}"></strong></p>
         <p>Gender: <strong th:text="*{gender}"></strong></p>
     </div>
+
+    <div class="each-expression container">
+        <h3>Each expression</h3>
+        <hr/>
+
+        <table class="table table-striped border-1">
+            <thead>
+            <tr>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Gender</th>
+            </tr>
+            </thead>
+            <tbody th:each="student : ${students}" th:remove="tag">
+            <tr>
+                <td th:text="${student.firstname}"></td>
+                <td th:text="${student.lastname}"></td>
+                <td th:text="${student.gender}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </main>
 </body>
 </html>
