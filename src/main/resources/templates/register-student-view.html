@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student registration form</title>
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css"
+          th:href="@{/css/style.css}" media="screen,projection"/>
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css"
+          th:href="@{/css/materialize.min.css}" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<div class="row container">
+    <h2>Student Registration</h2>
+    <hr/>
+    <br/>
+    <form class="col s12" role="form" method="post" th:action="@{/view/student/register/save}"
+          th:object="${studentToCreate}">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Alice" id="first_name" type="text" th:field="*{firstname}" class="validate"
+                       required>
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="Smith" id="last_name" type="text" th:field="*{lastname}" class="validate" required>
+                <label for="last_name">Last Name</label>
+            </div>
+
+            <label>Browser Select</label>
+            <select class="browser-default" th:field="*{gender}" required>
+                <option th:each="gender : ${genderList}" th:value="${gender}" th:text="${gender}"></option>
+            </select>
+        </div>
+        <button class="waves-effect waves-light btn" type="submit">Register</button>
+    </form>
+</div>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" th:src="@{/js/materialize.min.js}"></script>
+</body>
+</html>
