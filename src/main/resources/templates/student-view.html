@@ -63,6 +63,7 @@
                 <th scope="col">Firstname</th>
                 <th scope="col">Lastname</th>
                 <th scope="col">Gender</th>
+                <th scope="col">isAlice</th>
             </tr>
             </thead>
             <tbody th:each="student : ${students}" th:remove="tag">
@@ -70,6 +71,10 @@
                 <td th:text="${student.firstname}"></td>
                 <td th:text="${student.lastname}"></td>
                 <td th:text="${student.gender}"></td>
+                <td th:switch="${student.firstname}">
+                    <span th:case="Alice">Yes</span>
+                    <span th:case="*">No</span>
+                </td>
             </tr>
             </tbody>
         </table>
